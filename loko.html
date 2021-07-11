@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion Randomizer</title>
+    <link rel="icon" href="clown.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="d-flex justify-content-center championi">
+        <figure class="padding-prosim">
+            <div class="pre-zoom">
+                <img class="champ top-image" src="champi/Aatrox.jpg">
+            </div>
+            <figcaption class="top d-flex align-items-center"></figcaption>
+        </figure>
+        <figure class="padding-prosim">
+            <div class="pre-zoom">
+                <img class="champ jungle-image" src="champi/Aatrox.jpg">
+            </div>
+            <figcaption class="jungle d-flex align-items-center"></figcaption>
+        </figure>
+        <figure class="padding-prosim">
+            <div class="pre-zoom">
+                <img class="champ mid-image" src="champi/Aatrox.jpg">
+            </div>
+            <figcaption class="mid d-flex align-items-center"></figcaption>
+        </figure>
+        <figure class="padding-prosim">
+            <div class="pre-zoom">
+                <img class="champ adc-image" src="champi/Aatrox.jpg">
+            </div>
+            <figcaption class="adc d-flex align-items-center"></figcaption>
+        </figure>
+        <figure class="padding-prosim">
+            <div class="pre-zoom">
+                <img class="champ supp-image" src="champi/Aatrox.jpg">
+            </div>
+            <figcaption class="supp d-flex align-items-center"></figcaption>
+        </figure>
+
+    </div>
+    <div class="d-flex justify-content-center roll-button">
+        <button class="rolluj">
+            <svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-1">
+              <rect x="5.5" y="5.5" width="189" height="49" fill="#C28B2B"/>
+              <path
+               d="      M 0.5,20
+                       L 20,0.5
+                       L 199,0.5
+                       L 199,39
+                       L 179,59
+                       L 0.5,59
+                       z" fill="none" stroke="white"/>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Show The Comp</text>
+            </svg>
+          </button>
+    </div>
+
+    <p class="čs"></p>
+
+    <script>
+        var picknutychampi = [0, 0, "Yasuo", 0, 0];
+        //prepare policka
+        var topchampi = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius", "Dr. Mundo", "Fiora", "Gangplank", "Garen", "Gnar", "Gwen", "Heimerdinger", "Illaoi", "Irelia", "Jax", "Jayce", "Kayle", "Kennen", "Kled", "Lee Sin", "Malphite", "Mordekaiser", "Nasus", "Ornn", "Quinn", "Renekton",
+            "Riven", "Sett", "Shen", "Singed", "Sion", "Sylas", "Tahm Kench", "Teemo", "Tryndamere", "Urgot", "Vayne", "Volibear", "Wukong", "Yasuo", "Yone", "Yorick"
+        ]
+        var jungle = ["Amumu", "Diana", "Ekko", "Elise", "Evelynn", "Fiddlesticks", "Gragas", "Graves", "Hecarim", "Ivern", "Jarvan IV", "Karthus", "Kayn", "Kha'Zix", "Kindred", "Lee Sin", "Lillia", "Master Yi", "NIdalee", "Nunu & Willump", "Olaf", "Poppy", "Rammus", "Rek'Sai",
+            "Rengar", "Rumble", "Sejuani", "Shaco", "Shyvana", "Skarner", "Taliyah", "Trundle", "Udyr", "vi", "Viego", "Volibear", "Warwick", "Xin Zhao", "Zac"
+        ];
+        var mid = ["Ahri", "Akali", "Anivia", "Annie", "Aurelion Sol", "Azir", "Cassiopeia", "Corki", "Diana", "Ekko", "Fizz", "Galio", "Heimerdinger", "Irelia", "Kassadin", "Katarina", "LeBlanc", "Lissandra", "Lucian", "Lux", "Malzahar", "Neeko", "Nocturne", "Orianna", "Pantheon", "Qiyana", "Ryze",
+            "Sylas", "Syndra", "Talon", "Twisted Fate", "Veigar", "Viego", "Viktor", "Vladimir", "Xerath", "Yasuo", "Yone", "Zed", "Ziggs", "Zoe"
+        ];
+        var adc = ["Aphelios", "Ashe", "Caitlyn", "Draven", "Ezreal", "Jhin", "Jinx", "Kai'Sa", "Kalista", "Kog'Maw", "Lucian", "Miss Fortune", "Samira", "Senna", "Sivir", "Tristana", "Twitch", "Varus", "Vayne", "Xayah", "Yasuo"];
+        var support = ["Alistar", "Bard", "Blitzcrank", "Brand", "Braum", "Galio", "Janna", "Karma", "Leona", "Lulu", "Lux", "Maokai", "Morgana", "Nami", "Nautilus", "Pantheon", "Pyke", "Rakan", "Rell", "Senna", "Seraphine", "Sett", "Shaco", "Sona", "Sona", "Soraka", "Swain", "Taric", "Thresh",
+            "Vel'Koz", "Xerath", "Yuumi", "Zilean", "Zyra"
+        ];
+        /* var topchampi = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius", "Yasuo"];
+         var jungle = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius"];
+         var mid = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius"];
+         var adc = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius"];
+         var support = ["Aatrox", "Akali", "Camille", "Cho'Gath", "Darius"];*/
+        var cisla = [1, 2, 3, 4, 5];
+        shuffleArray(cisla);
+        //nacteni do promennych lmfaooooo
+        const tophracimage = document.querySelector(".top-image");
+        const junghracimage = document.querySelector(".jungle-image");
+        const midhracimage = document.querySelector(".mid-image");
+        const adchracimage = document.querySelector(".adc-image");
+        const supphracimage = document.querySelector(".supp-image");
+
+        const button = document.querySelector(".rolluj");
+        //nacteni do promennych lmfaooooo
+        const tophrac = document.querySelector(".top");
+        const junghrac = document.querySelector(".jungle");
+        const midhrac = document.querySelector(".mid");
+        const adchrac = document.querySelector(".adc");
+        const supphrac = document.querySelector(".supp");
+        //onclicky
+        tophracimage.addEventListener("click", () => {
+            picknichampa("top");
+        });
+        junghracimage.addEventListener("click", () => {
+            picknichampa("jungle");
+        });
+        midhracimage.addEventListener("click", () => {
+            picknichampa("mid");
+        });
+        adchracimage.addEventListener("click", () => {
+            picknichampa("adc");
+        });
+        supphracimage.addEventListener("click", () => {
+            picknichampa("support");
+        });
+        /*picknichampa("top");
+        picknichampa("jungle");
+        picknichampa("mid");
+        picknichampa("adc");
+        picknichampa("support");*/
+        animacka("top");
+        setTimeout(() => {
+            animacka("jungle");
+        }, 1000);
+        setTimeout(() => {
+            animacka("mid");
+        }, 2000);
+        setTimeout(() => {
+            animacka("adc");
+        }, 3000);
+        setTimeout(() => {
+            animacka("support");
+        }, 4000);
+
+
+        function nepickuj2(champ) {
+            for (let i = 0; i < picknutychampi.length; i++) {
+                if (champ == picknutychampi[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function picknichampa(role) {
+            var champ;
+            if (role == "top") {
+                do {
+                    champ = topchampi[Math.floor(Math.random() * topchampi.length)];
+                } while (nepickuj2(champ) != true);
+                tophrac.innerHTML = `${champ}`;
+                picknutychampi[0] = champ;
+                champ = champ.replace(/\s+/g, '');
+                tophracimage.src = `champi/${champ}.jpg`;
+            } else if (role == "jungle") {
+                do {
+                    champ = jungle[Math.floor(Math.random() * jungle.length)];
+                } while (nepickuj2(champ) != true);
+                junghrac.innerHTML = `${champ}`;
+                picknutychampi[1] = champ;
+                champ = champ.replace(/\s+/g, '');
+                junghracimage.src = `champi/${champ}.jpg`;
+            } else if (role == "mid") {
+                do {
+                    champ = mid[Math.floor(Math.random() * mid.length)];
+                } while (nepickuj2(champ) != true);
+                midhrac.innerHTML = `${champ}`;
+                picknutychampi[2] = champ;
+                champ = champ.replace(/\s+/g, '');
+                midhracimage.src = `champi/${champ}.jpg`;
+            } else if (role == "adc") {
+                do {
+                    champ = adc[Math.floor(Math.random() * adc.length)];
+                } while (nepickuj2(champ) != true);
+                adchrac.innerHTML = `${champ}`;
+                picknutychampi[3] = champ;
+                champ = champ.replace(/\s+/g, '');
+                adchracimage.src = `champi/${champ}.jpg`;
+            } else if (role == "support") {
+                do {
+                    champ = support[Math.floor(Math.random() * support.length)];
+                } while (nepickuj2(champ) != true);
+                supphrac.innerHTML = `${champ}`;
+                picknutychampi[4] = champ;
+                champ = champ.replace(/\s+/g, '');
+                supphracimage.src = `champi/${champ}.jpg`;
+            }
+        }
+        //shuffle na random cisla
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        //animace
+        //random pick
+        function animacka(role) {
+            var count = 0;
+            let animace = window.setInterval(() => {
+                picknichampa(role);
+                count++
+                if (count > 4) {
+                    window.clearInterval(animace);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>
